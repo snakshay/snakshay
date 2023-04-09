@@ -1,6 +1,4 @@
 import { useState } from "react";
-import { data } from "../data";
-import SectionHeader from "./SectionHeader";
 
 import Accordion from '@mui/material/Accordion';
 import AccordionSummary from '@mui/material/AccordionSummary';
@@ -14,9 +12,13 @@ import TimelineConnector from '@mui/lab/TimelineConnector';
 import TimelineContent from '@mui/lab/TimelineContent';
 import TimelineDot from '@mui/lab/TimelineDot';
 import TimelineOppositeContent, {
-  timelineOppositeContentClasses,
+    timelineOppositeContentClasses,
 } from '@mui/lab/TimelineOppositeContent';
 import Timeline from '@mui/lab/Timeline';
+
+import { data } from "../data";
+import SectionHeader from "./SectionHeader";
+import FadeIn from "../animation/FadeIn";
 
 const defaultAccordions = data.xp.map(e=>e.expanded)
 
@@ -30,51 +32,55 @@ const XP = () => {
         setExpanded(data)
     }
     return (
-        <div id="Experience" className="section xp">
-            <SectionHeader name=" Experience " />
-            <Timeline
-                sx={{
-                    [`& .${timelineOppositeContentClasses.root}`]: {
-                    flex: 0.2,
-                    },
-                }}
-                >
-                {data.xp.map((e,index) => (
+        <div id="Experience" className="home xp">
+            <div className="content-wrapper">
 
-                    <TimelineItem key ={e.id}>
-                        <TimelineOppositeContent>
-                        {e.timeline}
-                        </TimelineOppositeContent>
-                        <TimelineSeparator>
-                        <TimelineDot  variant="outlined" color="secondary" />
-                        <TimelineConnector />
-                        </TimelineSeparator>
-                        <TimelineContent>
-                            <Accordion sx={{ backgroundColor: 'transparent', color: 'white' }}  expanded={expanded[index]} key={e.id}>
-                                <AccordionSummary
-                                    onClick={()=>accordionHandler(index)}
-                                    expandIcon={<ExpandMoreIcon sx={{ color: 'white' }} />}
-                                    aria-controls="panel1a-content"
-                                    id="panel1a-header" 
-                                >
-                                    <Typography><b>{e.title} @ {e.at}</b></Typography>
-                                    
-                                </AccordionSummary>
-                                <AccordionDetails>
-                                    {e.about?.map((abt,i) => (
-                                        <Typography key={i} className="about-xp" >
-                                            <PlayArrowRoundedIcon  fontSize="small"/>
-                                            {abt}
-                                        </Typography>
-                                    ))}
-                        
-                                
-                                </AccordionDetails>
-                            </Accordion>
-                        </TimelineContent>
-                    </TimelineItem>
-                ))}
-            </Timeline>
+                <SectionHeader name="Experience" />
+                    <Timeline
+                        sx={{
+                            [`& .${timelineOppositeContentClasses.root}`]: {
+                            flex: 0.2,
+                            },
+                        }}
+                        >
+                        {data.xp.map((e,index) => (
+
+                            <TimelineItem key ={e.id}>
+                                <TimelineOppositeContent>
+                                {e.timeline}
+                                </TimelineOppositeContent>
+                                <TimelineSeparator>
+                                <TimelineDot  variant="outlined" color="secondary" />
+                                <TimelineConnector />
+                                </TimelineSeparator>
+                                <TimelineContent>
+                                    <Accordion sx={{ backgroundColor: 'transparent', color: 'white' }}  expanded={expanded[index]} key={e.id}>
+                                        <AccordionSummary
+                                            onClick={()=>accordionHandler(index)}
+                                            expandIcon={<ExpandMoreIcon sx={{ color: 'white' }} />}
+                                            aria-controls="panel1a-content"
+                                            id="panel1a-header" 
+                                        >
+                                            <Typography><b>{e.title} @ {e.at}</b></Typography>
+                                            
+                                        </AccordionSummary>
+                                        <AccordionDetails>
+                                            <FadeIn>
+
+                                            {e.about?.map((abt,i) => (
+                                                <Typography key={i} className="about-xp" >
+                                                    <PlayArrowRoundedIcon  fontSize="small"/>
+                                                    {abt}
+                                                </Typography>
+                                            ))}
+                                            </FadeIn>
+                                        </AccordionDetails>
+                                    </Accordion>
+                                </TimelineContent>
+                            </TimelineItem>
+                        ))}
+                    </Timeline>
+            </div>
         </div>
     );
 }

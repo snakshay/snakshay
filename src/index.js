@@ -9,18 +9,6 @@ import {
 } from 'react-router-dom';
 import NavBar from './components/Navbar';
 
-const handleScroll = (event) => {
-  var node = event.target;
-  const down = node.scrollHeight - node.scrollTop === node.clientHeight;
-  if (down) {
-  }
-}
-
-const paneDidMount = (node) => {
-  if (node) {
-      node.addEventListener("scroll", handleScroll);
-  }
-};
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

@@ -1,10 +1,10 @@
 const data ={
     name:"Akshay Nair",
     subHeader:"I like to build awesome websites!",
-    intro:"I am javascript full stack developer. Currently I am working as front-end developer at",
+    intro:"I am javascript full stack developer skilled in React, Angular, Node, Express, MongoDB. Currently I am working as front-end developer @",
     companyName:"Accenture, India",
     companyLink:"https://www.accenture.com/",
-    aboutMe:"<p> Hello! My name is <b>Akshay Nair.</b> My passion for programming began in 2015, when I had the opportunity to take computer science as a vocational subject at school.  Even after discovering the joy of programming languages like C++, Java and Python, nothing could compare to my experience with web development frameworks/libraries such as React, Angular and Node.js. </p><br/><p>I am currently employed as an<b> Application Development Analyst</b> @<b> Accenture</b>   , specializing in developing responsive websites for clients utilizing the latest web technologies.</p> <br/> <p>Few technologies i have been working with recently: <ul><li>React</li> <li>Angular</li> <li>Javascript (ES6+)</li> <li>Typescript</li> <li>HTML/CSS</li> <li>Bootstrap</li></ul></p>",
+    aboutMe:"<p> Hello! My name is <b>Akshay Nair.</b> My passion for programming began in 2015, when I had the opportunity to take computer science as a vocational subject at school.  Even after discovering the joy of programming languages like C++, Java and Python, nothing could compare to my experience with web development frameworks/libraries such as React, Angular and Node.js. </p><br/><p>I am currently employed as an<b> Application Development Analyst</b> @<b> Accenture</b>   , specializing in developing responsive websites for clients utilizing the latest web technologies.</p> <br/> <p>Few technologies i have been working with recently: <ul><li>React</li> <li>Angular</li> <li>Javascript (ES6+)</li> <li>Typescript</li> <li> Express </li> <li>HTML/Sass</li> <li>Bootstrap</li></ul></p>",
     xp:[
         {
            id:0,
@@ -13,7 +13,7 @@ const data ={
            timeline:"June 2022 - Present",
            role:[],
            expanded:true,
-           about:["Developed responsive websites using latest coding standards."," Worked with varierty of languages, frameworks/libraries & packages such as React, Angular, Typescript, SaSS, Express.","Developed quality code with help of tools like SonarQube & unit testing frameworks."]
+           about:["Developed responsive websites using latest coding standards."," Worked with varierty of languages, frameworks/libraries & packages such as React, Angular, Typescript, Sass, Express.","Developed quality code with help of tools like SonarQube & unit testing frameworks like Karma/Jasmine."]
         },
         {
             id:1,
@@ -53,7 +53,17 @@ const data ={
             about:"Designed a minimal dark theme for vs code.",
             gitHub:"https://github.com/snakshay/minimalist-dark"
         }
-    ]
+    ],
+    contact:{
+        location:"Mumbai, India",
+        phone:"(+91)887-958-5429",
+        email:"snakshay98@gmail.com",
+        linkedin:"https://www.linkedin.com/snakshay",
+        instagram:"https://www.instagram.com/snakshay",
+        gitHub:"https://github.com/snakshay",
+        facebook:"https://facebook.com/snakshay"
+
+    }
 }
 
 export {data}
