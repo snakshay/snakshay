@@ -31,27 +31,38 @@ const data ={
             title:"Social",
             about:"Web app built with React, Node.js, and Express, AWS S3 where user can connect with people, add posts, comments, like/unlike posts",
             link:"https://socialcloneapp.netlify.app/",
-            gitHub:""
+            gitHub:"",
+            code:"React, Express, Node, AWS S3, MUI"
         },
         {
             id:1,
             title:"Chat App",
             about:"Created chatroom with React & Socket.io to enable real-time communication between users. across same room",
             link:"https://chatapp-snakshay.netlify.app/",
-            gitHub:""
+            gitHub:"",
+            code:"React, Express, Socket.io, MUI"
         },
         {
             id:2,
             title:"Ecommerce Shopping App",
             about:"Developed simple ecommerce shopping application where users can shop for products, add products to cart and checkout. Login and signup leveraged using Firebase ",
             link:"https://shopall-with-us.netlify.app/",
-            gitHub:"https://github.com/snakshay/ecommerce-shop"
+            gitHub:"https://github.com/snakshay/ecommerce-shop",
+            code:"React, Express, Firebase"
         },
         {
             id:3,
             title:"Minimalistic dark theme",
-            about:"Designed a minimal dark theme for vs code.",
+            about:"Designed a minimal dark theme for vs code using themes.vscode.one",
             gitHub:"https://github.com/snakshay/minimalist-dark"
+        },
+        {
+            id:4,
+            title:"ToDo Web App",
+            about:"Developed a simple ToDo application where user can add/update/delete the tasks after login",
+            gitHub:"https://github.com/snakshay/ToDoist",
+            link:"https://todoistweb.netlify.app/",
+            code:"React, Express, Node, MongoDB, Redux"
         }
     ],
     contact:{

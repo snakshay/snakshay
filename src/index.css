@@ -149,7 +149,6 @@ h1,h2,h3,h4,h5,h6{
   border: 1px solid rgba(255,255,255,0.12) !important;
   border-radius: 1em !important;
   min-height: 350px;
-  cursor: pointer;
   width:350px
 }
 .contact {
@@ -167,7 +166,7 @@ a{
 }
 .contact-info{
   display: flex;
-  justify-content: end;
+  justify-content:flex-end;
 }
 @media only screen and (max-width: 550px) {
   .contact {
