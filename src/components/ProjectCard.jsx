@@ -63,14 +63,14 @@ export default function ProjectCard({project}) {
           }
           {
             project.code && 
-            <Tooltip title={project.code} >
+            <Tooltip title={project.code} leaveTouchDelay={3000} enterTouchDelay={0}>
                 <IconButton  color="primary">
                   <CodeOutlinedIcon/>
                 </IconButton>
               </Tooltip>
           }
           {project.info && 
-            <Tooltip title={project.info} leaveTouchDelay={3000} enterTouchDelay={50}>
+            <Tooltip title={project.info} leaveTouchDelay={3000} enterTouchDelay={0}>
               <IconButton  color="primary" >
                 <InfoOutlinedIcon/>
               </IconButton>

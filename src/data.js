@@ -62,7 +62,8 @@ const data ={
             about:"Developed a simple ToDo application where user can add/update/delete the tasks after login",
             gitHub:"https://github.com/snakshay/ToDoist",
             link:"https://todoistweb.netlify.app/",
-            code:"React, Express, Node, MongoDB, Redux"
+            code:"React, Express, Node, MongoDB, Redux",
+            info:"This app is no longer supported"
         }
     ],
     contact:{
