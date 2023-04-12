@@ -1,7 +1,7 @@
 const data ={
     name:"Akshay Nair",
     subHeader:"I like to build awesome websites!",
-    intro:"I am javascript full stack developer skilled in React, Angular, Node, Express, MongoDB. Currently I am working as front-end developer @",
+    intro:"I am javascript full stack developer skilled in React, Angular, Node, Express, MongoDB. Currently I am working as Software Engineer @",
     companyName:"Accenture, India",
     companyLink:"https://www.accenture.com/",
     aboutMe:"<p> Hello! My name is <b>Akshay Nair.</b> My passion for programming began in 2015, when I had the opportunity to take computer science as a vocational subject at school.  Even after discovering the joy of programming languages like C++, Java and Python, nothing could compare to my experience with web development frameworks/libraries such as React, Angular and Node.js. </p><br/><p>I am currently employed as an<b> Application Development Analyst</b> @<b> Accenture</b>   , specializing in developing responsive websites for clients utilizing the latest web technologies.</p> <br/> <p>Few technologies i have been working with recently: <ul><li>React</li> <li>Angular</li> <li>Javascript (ES6+)</li> <li>Typescript</li> <li> Express </li> <li>HTML/Sass</li> <li>Bootstrap</li></ul></p>",
