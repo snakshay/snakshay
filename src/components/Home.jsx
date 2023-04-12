@@ -18,7 +18,7 @@ const Home = () => {
                         <Grid container spacing={2}>
                             <Grid item xs={12} md={5}>
                                 <div className="profile-container">
-                                    {*<img className="profile" src={profile} alt="" height="250px"/>*}
+                                    {/* <img className="profile" src={profile} alt="" height="250px"/>*/}
                                 </div>
                             </Grid>
                             <Grid item xs={12} md={7}>
