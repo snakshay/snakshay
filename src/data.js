@@ -70,7 +70,7 @@ const data ={
         location:"Mumbai, India",
         phone:"(+91)887-958-5429",
         email:"snakshay98@gmail.com",
-        linkedin:"https://www.linkedin.com/snakshay",
+        linkedin:"https://www.linkedin.com/in/snakshay",
         instagram:"https://www.instagram.com/snakshay",
         gitHub:"https://github.com/snakshay",
         facebook:"https://facebook.com/snakshay"
