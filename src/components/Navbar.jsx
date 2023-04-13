@@ -11,19 +11,6 @@ const pages = ["About","Experience", "Projects", "Contact"];
 export const uiPages = {About:'Bio',Experience: 'Proficiency',Projects: 'My Work',Contact: 'Say Hi!'}
 
 const NavBar = () => {
-  const [isSelected, setIsSelected] = React.useState({});
-
-  const selection = (selection) => {
-    let selections ={
-      About: false,
-      Projects: false,
-      Contact: false,
-      Experience:false,
-    }
-    selections[selection] = true;
-    setIsSelected(selections)
-  }
-
   return (
     <AppBar position="fixed" sx={{ backgroundColor: "#000" }}>
       <Container maxWidth="100%">
@@ -46,9 +33,9 @@ const NavBar = () => {
                   spy={true}
                   smooth={true}
                   offset={-100}
+                  activeClass="selected"
                   duration={500}
-                className={`animated-link ${isSelected[page] ? "selected" : ""}`}
-                onClick ={() => selection(page)}
+                  className={`animated-link`}
                 >
                   {uiPages[page]}
                 </Link>

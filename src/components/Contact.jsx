@@ -12,8 +12,8 @@ import FadeIn from '../animation/FadeIn';
 const Contact = () => {
     return (
             <FadeIn>
-                <div className='contact ' id="Contact">
-                    <div className="contact-margin">
+                <div className='home contact ' id="Contact">
+                    <div className="contact-margin contact-info-container">
                         <span className="contact-info"><LocationOnOutlinedIcon/>{data.contact.location}</span><br/>
                         <span  className="contact-info"><LocalPhoneOutlinedIcon/>{data.contact.phone}</span><br/>
                         <span  className="contact-info"><MailOutlineRoundedIcon/>{data.contact.email}</span><br/>

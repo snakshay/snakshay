@@ -96,6 +96,7 @@ a.animated-link {
 a{
   text-decoration: none;
   cursor: pointer;
+  color: #FFF !important;
 }
 h1,h2,h3,h4,h5,h6{
   margin:0
@@ -157,9 +158,6 @@ h1,h2,h3,h4,h5,h6{
   flex-direction: row;
   align-items: center;
 }
-a{
-  color: #FFF !important;
-}
 .contact-links{
   display: flex;
   justify-content: space-around;
@@ -168,9 +166,15 @@ a{
   display: flex;
   justify-content:flex-end;
 }
+.contact-info-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 @media only screen and (max-width: 550px) {
   .contact {
     flex-direction: column;
+    justify-content: space-evenly;
   }
 }
 .project-card,.profile-container{

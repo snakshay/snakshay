@@ -65,7 +65,7 @@ const XP = () => {
                                             
                                         </AccordionSummary>
                                         <AccordionDetails>
-                                            <FadeIn>
+                                            <FadeIn threshold={0.1}>
 
                                             {e.about?.map((abt,i) => (
                                                 <Typography key={i} className="about-xp" >
