@@ -8,6 +8,16 @@ import XP from './components/XP';
 function App() {
   return (
     <div className="navbar-margin">
+    <div class="background">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
 
      <Home/>
      <About/>
