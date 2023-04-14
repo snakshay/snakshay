@@ -31,7 +31,7 @@ const data ={
             title:"Social",
             about:"Web app built with React, Node.js, and Express, AWS S3 where user can connect with people, add posts, comments, like/unlike posts",
             link:"https://socialcloneapp.netlify.app/",
-            gitHub:"",
+            gitHub:"https://github.com/snakshay/social_live",
             code:"React, Express, Node, AWS S3, MUI"
         },
         {
@@ -39,7 +39,7 @@ const data ={
             title:"Chat App",
             about:"Created chatroom with React & Socket.io to enable real-time communication between users. across same room",
             link:"https://chatapp-snakshay.netlify.app/",
-            gitHub:"",
+            gitHub:"https://github.com/snakshay/chatapp_live",
             code:"React, Express, Socket.io, MUI"
         },
         {
