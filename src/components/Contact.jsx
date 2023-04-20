@@ -19,7 +19,7 @@ const Contact = () => {
                         <span  className="contact-info"><MailOutlineRoundedIcon/>{data.contact.email}</span><br/>
                     </div>
                     <div className="contact-margin">
-                        Also reach me out at: <br/>
+                        Also reach me @: <br/>
                         <div className="contact-links">
                             <a href={data.contact.instagram}>
                                 <InstagramIcon/>
