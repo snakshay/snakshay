@@ -1,14 +1,20 @@
 import { Button, Box, Grid } from "@mui/material";
 import PictureAsPdfOutlinedIcon from '@mui/icons-material/PictureAsPdfOutlined';
+import ReactGA from 'react-ga';
 
 import FadeIn from '../animation/FadeIn';
 import {data} from '../data'
 import resume from '../documents/Akshay Nair.pdf'
-import profile from '../images/akshay.jpeg'
+// import profile from '../images/akshay.jpeg'
 
 const Home = () => {
 
     const openPdf =() => {
+        ReactGA.event({
+            category: 'Button',
+            action: 'Click',
+            label: 'Resume',
+          });
         window.open(resume);
     }
     return ( 

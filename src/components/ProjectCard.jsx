@@ -1,5 +1,6 @@
 import * as React from 'react';
 
+import ReactGA from 'react-ga';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
@@ -28,6 +29,11 @@ const imgMap = {
 export default function ProjectCard({project}) {
 
   const navigate = (link) => {
+    ReactGA.event({
+      category: 'link',
+      action: 'Click',
+      label: link,
+    });
     window.location.href = link
   }
   return (
