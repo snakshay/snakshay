@@ -13,6 +13,9 @@ body {
 	animation-fill-mode: forwards;
   overflow-x: hidden;
 }
+.d-none{
+ display:none
+}
 
 ::-webkit-scrollbar {
   width: 8px;
