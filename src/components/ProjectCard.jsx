@@ -42,7 +42,7 @@ export default function ProjectCard({project}) {
           {imgMap[project.id] && 
             <CardMedia
               component="img"
-              alt="green iguana"
+              alt={imgMap[project.id]}
               height="140"
               image={imgMap[project.id]}
             />
