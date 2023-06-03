@@ -5,7 +5,7 @@ import ReactGA from 'react-ga';
 import FadeIn from '../animation/FadeIn';
 import {data} from '../data'
 import resume from '../documents/Akshay Nair.pdf'
-// import profile from '../images/akshay.jpeg'
+import profile from '../images/self2.jpg'
 
 const Home = () => {
 
@@ -24,7 +24,7 @@ const Home = () => {
                         <Grid container spacing={2}>
                             <Grid item xs={12} md={5}>
                                 <div className="profile-container">
-                                    {/* <img className="profile" src={profile} alt="" height="250px"/>*/}
+                                    <img className="profile" src={profile} alt="Akshay Nair Software Engineer" />
                                 </div>
                             </Grid>
                             <Grid item xs={12} md={7}>

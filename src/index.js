@@ -15,11 +15,23 @@ ReactGA.initialize('UA-265988812-1');
 if (!localStorage.getItem('user_id')) {
   localStorage.setItem('user_id', Math.random().toString(36).substring(7));
 }
-
+let userCity
 const userId = localStorage.getItem('user_id');
 let userLocation,userDevice;
 navigator.geolocation.getCurrentPosition((position) =>{
   userLocation  = position.coords.latitude + ',' + position.coords.longitude;
+  const latitude = position.coords.latitude;
+  const longitude = position.coords.longitude;
+
+  fetch(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${latitude},${longitude}&key=YOUR_API_KEY`)
+    .then(response => response.json())
+    .then(data => {
+       userCity = data.results[0].address_components.filter(component => component.types.includes('locality'))[0].long_name;
+
+      ReactGA.set({
+        'dimension1': userCity,
+      });
+    });
 });
 
 const userAgent = navigator.userAgent;
@@ -44,6 +56,7 @@ ReactGA.set({
   userId: userId,
   dimension1: userLocation,
   dimension2: userDevice,
+  dimension3:userCity
 });
 
 
