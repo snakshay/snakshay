@@ -83,10 +83,9 @@ a.animated-link {
 }
 
 .profile {
-  height: 280px;
-  width: 280;
-  object-fit: cover;
-  object-position: top;
+  height: 310px;
+  width: 285px;
+  object-fit: fill;
   border-radius: 50%;
 }
 .navbar-margin{

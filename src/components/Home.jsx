@@ -5,7 +5,7 @@ import ReactGA from 'react-ga';
 import FadeIn from '../animation/FadeIn';
 import {data} from '../data'
 import resume from '../documents/Akshay Nair.pdf'
-import profile from '../images/akshay.jpeg'
+import profile from '../images/Akshay.jpg'
 
 const Home = () => {
 
