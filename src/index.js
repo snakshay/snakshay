@@ -9,6 +9,7 @@ import {
 } from 'react-router-dom';
 import NavBar from './components/Navbar';
 import ReactGA from 'react-ga';
+import ResumeDownload from './components/ResumeDowload';
 
 ReactGA.initialize('UA-265988812-1');
 
@@ -64,9 +65,14 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <Router> 
-    <NavBar/>
+    
     <Routes>
-      <Route path="/" element={<App />} />
+        <Route path="/" element={ 
+            <>
+              <NavBar/><App />
+            </>
+        } />
+      <Route path="/resume" element={<ResumeDownload />} />
     </Routes>
 
     </Router>

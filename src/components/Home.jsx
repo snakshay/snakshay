@@ -6,6 +6,7 @@ import FadeIn from '../animation/FadeIn';
 import {data} from '../data'
 import resume from '../documents/akshay.s.nair_mern.pdf'
 import profile from '../images/Akshay.jpg'
+import ResumeDownload from "./ResumeDowload";
 
 const Home = () => {
 
@@ -33,7 +34,7 @@ const Home = () => {
                                 <h2>{data.subHeader}</h2><br/>
                                 <span>{data.intro} <a href={data.companyLink}> {data.companyName}</a></span>
                                 <Box sx={{margin:"30px 0"}}>
-                                    <Button  variant="contained" endIcon={<PictureAsPdfOutlinedIcon/>} color="secondary" onClick={()=>openPdf()}>Resume</Button>
+                                   <ResumeDownload/>
                                 </Box>
                             </Grid>
                             
