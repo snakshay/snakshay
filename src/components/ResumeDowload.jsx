@@ -1,13 +1,17 @@
-import { Button } from "@mui/material";
+
 import PictureAsPdfOutlinedIcon from '@mui/icons-material/PictureAsPdfOutlined';
 import ReactGA from 'react-ga';
 import resume from '../documents/akshay.s.nair_mern.pdf'
+import { LoadingButton } from '@mui/lab';
+import { useState } from 'react';
 const ResumeDownload = () => {
+    const [loading, setLoading] = useState(false);
     
     let allowGeoRecall = true;
     let countLocationAttempts = 0;
 
-    const download =() => {
+    const download = () => {
+        setLoading(false)
         ReactGA.event({
             category: 'Button',
             action: 'Click',
@@ -17,6 +21,7 @@ const ResumeDownload = () => {
     }
 
     const getIp = (location,details) => {
+        setLoading(true)
         fetch(`https://api.ipdata.co/?api-key=${process.env.REACT_APP_API_KEY}`)
             .then(response => response.json())
             .then(json => {
@@ -83,10 +88,12 @@ const ResumeDownload = () => {
 
     return (
         <>
-            <Button
+            <LoadingButton
+               loading={loading}
                 variant="contained"
+                loadingPosition="end"
                 endIcon={<PictureAsPdfOutlinedIcon />}
-                color="secondary" onClick={() => openPdf()}>Resume</Button>
+                onClick={() => openPdf()}>Resume   </LoadingButton>
         </>
     );
 }
