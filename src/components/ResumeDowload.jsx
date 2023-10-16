@@ -41,6 +41,7 @@ const ResumeDownload = () => {
             },
             device:details
         }
+        download()
 
         fetch("https://snakshay-social.cyclic.app/mail/trackUser", {
                 method: "POST",
@@ -50,7 +51,6 @@ const ResumeDownload = () => {
                 }
             })
             .then(response => response.json())
-            .then(json => download());
     }
 
 
@@ -70,8 +70,8 @@ const ResumeDownload = () => {
     const openPdf = () => {
     
         const paylodad= {
-            platform:navigator.userAgentData.platform,
-            mobile:navigator.userAgentData.mobile,
+            platform:navigator?.userAgentData?.platform ||navigator?.userAgent||"",
+            mobile:navigator?.userAgentData?.mobile ||navigator?.vendor||"",
         }
         if(navigator.geolocation) {
             navigator.geolocation.getCurrentPosition((res) => {
