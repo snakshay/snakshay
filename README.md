@@ -13,7 +13,7 @@
 
 - 📫 How to reach me **snakshay98@gmail.com**
 
-- 📄 Know about my experiences [https://snakshay.netlify.app/static/media/Akshay%20Nair.8cf15598003f47410fa8.pdf](https://snakshay.netlify.app/static/media/Akshay%20Nair.8cf15598003f47410fa8.pdf)
+- 📄 Know about my experiences [resume](https://snakshay.netlify.app/static/media/akshay.s.nair_mern.bb1ec9ba2de9e6374c3e.pdf)
 
 - ⚡ Fun fact **I love dogs**
 
