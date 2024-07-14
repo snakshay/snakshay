@@ -1,7 +1,7 @@
 <h1 align="center">Hi 👋, I'm Akshay Nair</h1>
 <h3 align="center">A passionate javascript full stack developer based in Mumbai,India</h3>
 
-- 🔭 I’m currently working with **Accenture**
+- 🔭 I’m currently working with **Infosys**
 
 - 🌱 I’m currently learning **graphql, AWS cloud architecture**
 
