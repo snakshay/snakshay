@@ -3,30 +3,32 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import {
-  BrowserRouter as Router, 
-  Routes, 
+  BrowserRouter as Router,
+  Routes,
   Route
 } from 'react-router-dom';
 import NavBar from './components/Navbar';
-import ReactGA from 'react-ga';
-import ResumeDownload from './components/ResumeDowload';
-
-
+import ResumeDownload from './components/ResumeDownload';
+import { ColourModeProvider } from './theme/ColourModeContext';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <Router> 
-    
-    <Routes>
-        <Route path="/" element={ 
-            <>
-              <NavBar/><App />
-            </>
-        } />
-      <Route path="/resume" element={<ResumeDownload />} />
-    </Routes>
-
-    </Router>
+    <ColourModeProvider>
+      <Router>
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <>
+                <NavBar />
+                <App />
+              </>
+            }
+          />
+          <Route path="/resume" element={<ResumeDownload standalone />} />
+        </Routes>
+      </Router>
+    </ColourModeProvider>
   </React.StrictMode>
 );

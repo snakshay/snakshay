@@ -1,20 +1,29 @@
+/*
+ * Structure only. Every colour reads a custom property published on :root by
+ * the colour mode provider, so this file holds no colour literal and both
+ * modes are covered by the same rule set.
+ *
+ * Colour properties: --bg, --surface, --surface-muted, --text-primary,
+ * --text-secondary, --accent, --accent-soft, --accent-contrast,
+ * --accent-strong, --border, --border-strong, --focus-ring, --shadow,
+ * --shadow-raised.
+ *
+ * Other properties: --font-body, --font-heading, --motion-duration,
+ * --motion-delay.
+ */
+
 body {
   margin: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  color: #FFF;
   font-size: 18px;
-  font-family: 'Sofia Sans', sans-serif;
-  font-weight: 300;
-  line-height: 1.43;
-  background: linear-gradient(225deg, rgba(21,9,70,1) 18%, rgba(0,0,0,1) 100%);
-  animation: fadeInAnimation ease 3s;
-	animation-iteration-count: 1;
-	animation-fill-mode: forwards;
-  overflow-x: hidden;
-}
-.d-none{
- display:none
+  font-family: var(--font-body);
+  /* 400, not 300. At 18 pixels a 300 weight is what made the copy read as
+     washed out. */
+  font-weight: 400;
+  line-height: 1.6;
+  background: var(--bg);
+  color: var(--text-primary);
 }
 
 ::-webkit-scrollbar {
@@ -22,34 +31,60 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: #b3b3b3;
+  background-color: var(--border);
   border-radius: 8px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background-color: #a0a0a0;
-}
-
-::-webkit-scrollbar-track {
-  background-color: #f2f2f2;
+  background-color: var(--text-secondary);
   border-radius: 8px;
 }
 
-
-
-p{
-  font-family: 'Sofia Sans', sans-serif !important;
-  font-weight: 300 !important ;
+::-webkit-scrollbar-track {
+  background-color: var(--surface);
+  border-radius: 8px;
 }
 
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+}
 
+a {
+  text-decoration: none;
+  cursor: pointer;
+  color: var(--accent);
+  /* A third of the entrance duration. Derived, so a token change moves it and
+     no interval is written here. */
+  transition: color calc(var(--motion-duration) / 3) ease-out;
+}
+
+/* Plain anchors are the one link surface the theme does not style, so the
+   hover step lives here. Buttons, chips, and cards are the theme's job. */
+a:hover {
+  color: var(--accent-strong);
+}
+
+/* Every control shows the same ring, and the ring has a defined colour in
+   both modes. */
+:focus-visible {
+  outline: 2px solid var(--focus-ring);
+  outline-offset: 2px;
+}
+
+/* Images never push past their column. */
+img {
+  max-width: 100%;
+  height: auto;
+}
 
 .animated-link {
   position: relative;
   text-decoration: none;
+  font-weight: 500;
 }
+
 a.animated-link {
-  margin :10px
+  margin: 10px;
 }
 
 .animated-link::before {
@@ -59,174 +94,198 @@ a.animated-link {
   height: 2px;
   bottom: 0;
   left: 0;
-  background: #fff;
-  transition: width 0.3s ease-in-out;
+  background: var(--accent);
+  transition: width calc(var(--motion-duration) / 3) ease-out;
 }
 
-.animated-link.selected::before {
+/* The underline answers the pointer and the keyboard, not just the scroll spy,
+   so a nav item shows the same affordance however it is reached. */
+.animated-link.selected::before,
+.animated-link:hover::before,
+.animated-link:focus-visible::before {
   width: 100%;
-  background: #fff !important;
-  color: #fff !important;
-}
-.home{
-  display: flex;
-  flex-direction: row;
-  align-items:center;
-  min-height:100vh;
-  margin:0 2em;
-  animation: fadeInAnimation ease 3s;
-	animation-iteration-count: 1;
-	animation-fill-mode: forwards;
-}
-.section {
-  margin: 2em;
 }
 
+/* Section shell. Padding rather than a margin, so the section still paints
+   edge to edge while its content is inset, and the inset scales with the
+   viewport instead of sitting at a fixed 2em. */
+.home {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  min-height: 100vh;
+  padding: clamp(2.5rem, 6vw, 4.5rem) clamp(1rem, 4vw, 2.5rem);
+}
+
+/* The measure. Without a max width a paragraph runs the full 1920 pixels,
+   which is the single worst thing about the wide layout. */
+.content-wrapper {
+  flex: 1;
+  width: 100%;
+  max-width: 1120px;
+  margin-inline: auto;
+  overflow-wrap: anywhere;
+}
+
+/* Prose sits narrower than the grid it lives in, so a line of body copy stays
+   inside a comfortable reading measure at any viewport width. */
+.content-wrapper p {
+  max-width: 68ch;
+}
+
+/* Circular crop without a fixed height, so the photo scales with the
+   viewport instead of forcing a width. */
 .profile {
-  height: 310px;
-  object-fit: fill;
+  width: clamp(180px, 40vw, 310px);
+  aspect-ratio: 1;
+  height: auto;
+  object-fit: cover;
   border-radius: 50%;
-}
-.navbar-margin{
-  margin-top:60px
-}
-
-.content-wrapper
-{
-    flex: 1;
-    justify-content: center;
-    align-items: center;
-}
-a{
-  text-decoration: none;
-  cursor: pointer;
-  color: #FFF !important;
-}
-h1,h2,h3,h4,h5,h6{
-  margin:0
-}
-.about ul{
-  display: flex; 
-  justify-content: space-between;
-  margin:0
-}
-@media only screen and (max-width: 750px) {
-  .about ul{
-    flex-direction: column;
-  }
-}
-.about li{
-  font-weight: bold;
-  list-style: circle;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-raised);
 }
 
-.xp li{
+.navbar-margin {
+  margin-top: 60px;
+}
+
+.xp li {
   list-style-image: url('../public/caret-right-solid.svg');
+  overflow-wrap: anywhere;
 }
 
+/* Section headings are set in the display face so they carry real weight
+   against body copy. */
 .section-header {
-  position: relative;
-  font-size: 30px;
-  z-index: 1;
-  overflow: hidden;
+  font-family: var(--font-heading);
+  font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.015em;
   text-align: left;
+  overflow-wrap: anywhere;
 }
-.section-header:before, .section-header:after {
-  position: absolute;
-  top: 51%;
-  overflow: hidden;
-  width: 90%;
+
+/* The rule element replaces the absolutely positioned pseudo elements that
+   used to reach past the container. */
+.section-header-rule {
+  flex: 1;
   height: 1px;
-  content: '\a0';
-  background-color: red;
+  background-color: var(--border);
 }
-.section-header:before {
-  margin-left: -90%;
-}
-.about-xp {
-  display: flex;
-  align-items: baseline;
-  line-height: 40px!important;
-}
-.card{
-  background-color: #000 !important;
-  color: #FFF !important;
-  border: 1px solid rgba(255,255,255,0.12) !important;
-  border-radius: 1em !important;
+
+/* Size and wrapping only. Background, outline, radius, and elevation come from
+   the MUI card defaults, so a card looks the same whether or not it carries
+   this class. */
+.card {
   min-height: 350px;
-  width:350px
+  width: 100%;
+  max-width: 345px;
+  overflow-wrap: anywhere;
 }
-.contact {
-  display: flex;
-  justify-content: space-around;
-  flex-direction: row;
-  align-items: center;
-}
-.contact-links{
-  display: flex;
-  justify-content: space-around;
-}
-.contact-info{
-  display: flex;
-  justify-content:flex-end;
-}
-.contact-info-container{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-@media only screen and (max-width: 550px) {
-  .contact {
-    flex-direction: column;
-    justify-content: space-evenly;
-  }
-}
-.project-card,.profile-container{
+
+.project-card, .profile-container {
   display: flex;
   justify-content: center;
 }
-.contact-margin{
-  margin-top: 10px;
-}
 
-@keyframes fadeInAnimation {
-	0% {
-		opacity: 0;
-	}
-	100% {
-		opacity: 1;
-	}
-}
-
-
-
-.fade-in {
+/* Entrance.
+ *
+ * One reveal per section, played once, timed entirely by the custom properties
+ * `FadeIn` publishes (--motion-duration, --motion-delay, --motion-step). No
+ * interval is written here.
+ *
+ * The section wrapper never moves. Its content children carry the reveal and
+ * arrive in sequence, so a heading lands before the grid under it instead of
+ * the whole section appearing as one slab. A wrapper with no section content
+ * inside it, a card in a grid for instance, reveals itself instead
+ * (.fade-in-leaf). Anything this cannot match simply renders visible, which is
+ * the safe way for a reveal to fail.
+ *
+ * Vertical offset only. A horizontal offset on a full width section is what
+ * produces a sideways scrollbar, and scale or blur would either reflow or cost
+ * a repaint for nothing.
+ */
+.fade-in .content-wrapper > *,
+.fade-in-leaf {
   opacity: 0;
-  transform: translateY(40px);
-  transition: opacity 1s ease-out, transform 1s cubic-bezier(0.165, 0.84, 0.44, 1) 0.3s;
+  transform: translateY(16px);
 }
 
-.fade-in.visible {
+.fade-in.visible .content-wrapper > *,
+.fade-in-leaf.visible {
   opacity: 1;
-  transform: translateY(0);
+  transform: none;
 }
 
+.fade-in .content-wrapper > *,
+.fade-in .section-header-rule,
+.fade-in-leaf {
+  transition-property: opacity, transform;
+  transition-duration: var(--motion-duration);
+  /* Opacity rises evenly, the offset settles on a decelerating curve, so the
+     movement stops rather than arrives. */
+  transition-timing-function: ease-out, cubic-bezier(0.22, 1, 0.36, 1);
+  transition-delay: calc(var(--motion-step) * var(--motion-index, 0));
+}
 
-.MuiTimelineOppositeContent-root{
+/* The stagger. Tier zero needs no rule, and the tiers stop where the budget
+   does: past the last tier the remaining children share its delay rather than
+   trailing further out. `FadeIn.STAGGER_TIERS` is the same depth, and its test
+   fails if a token change moves it away from these rules. Descendants inherit
+   the tier, so a card inside the grid arrives with the grid. */
+.fade-in .content-wrapper > :nth-child(2) {
+  --motion-index: 1;
+}
+
+.fade-in .content-wrapper > :nth-child(n + 3) {
+  --motion-index: 2;
+}
+
+/* The heading rule draws out from the text it follows, one step behind it. The
+   element is decorative and a hairline, so scaling it moves no layout and can
+   never reach past its own column. */
+.fade-in .section-header-rule {
+  --motion-index: 1;
+  transform: scaleX(0);
+  transform-origin: left center;
+}
+
+.fade-in.visible .section-header-rule {
+  transform: none;
+}
+
+.MuiTimelineOppositeContent-root {
   min-width: 0;
 }
 
+/* Sections render in their final state, and nothing moves. The reveal, the
+   stagger, the heading rule, the underline, every hover step, and any keyframe
+   the theme layer might add are all off here. `FadeIn` also creates no observer
+   under this preference, so this block covers the case where the preference
+   changes and the state class is already on the wrapper. */
+@media (prefers-reduced-motion: reduce) {
+  .fade-in,
+  .fade-in.visible,
+  .fade-in-leaf,
+  .fade-in-leaf.visible,
+  .fade-in .content-wrapper > *,
+  .fade-in.visible .content-wrapper > *,
+  .fade-in .section-header-rule,
+  .fade-in.visible .section-header-rule {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
 
-.background {
-  position: fixed;
-  width: 100vw;
-  height: 100vh;
-  top: 0;
-  left: 0;
-  background: linear-gradient(225deg, rgba(21,9,70,1) 18%, rgba(0,0,0,1) 100%);
-  overflow: hidden;
-}
+  .animated-link::before {
+    transition: none;
+  }
 
- button.Mui-disabled{
-  background-color: #FFF !important;
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
 }
