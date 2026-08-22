@@ -17,7 +17,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "rimraf ./build && react-scripts build && rimraf ./build/**/*.ma",
+    "build": "rimraf ./build && react-scripts build && rimraf ./build/**/*.map",
     "test": "react-scripts test",
     "test:ci": "react-scripts test --watchAll=false"
   },
